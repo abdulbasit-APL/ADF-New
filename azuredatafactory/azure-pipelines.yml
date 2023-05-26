@@ -13,7 +13,7 @@ pool:
 
 variables:
   workingDir: $(Build.Repository.LocalPath)/azuredatafactory/src
-  #serviceConnection: 'AzureServiceConnection' 
+  serviceConnection: 'AzureServiceConnection' 
 
 stages:
   - stage: build
@@ -62,7 +62,7 @@ stages:
         - task: AzureCLI@2  
           displayName: 'Build bicep artifact' 
           inputs: 
-            azureSubscription: $(serviceConnection)
+            #azureSubscription: $(serviceConnection)
             scriptType: 'pscore'  
             scriptLocation: 'inlineScript'  
             inlineScript: |
@@ -99,7 +99,7 @@ stages:
                 displayName: Creating ADF Infrastructure by IaC
                 inputs:
                   deploymentScope: 'Resource Group'
-                  azureResourceManagerConnection: '$(serviceConnection)'
+                  #azureResourceManagerConnection: '$(serviceConnection)'
                   subscriptionId: '$(subscriptionId)'
                   action: 'Create Or Update Resource Group'
                   resourceGroupName: 'RG-Datafactory'
@@ -133,7 +133,7 @@ stages:
                 displayName: Creating ADF Infrastructure by IaC
                 inputs:
                   deploymentScope: 'Resource Group'
-                  azureResourceManagerConnection: '$(serviceConnection)'
+                  #azureResourceManagerConnection: '$(serviceConnection)'
                   subscriptionId: '$(subscriptionId)'
                   action: 'Create Or Update Resource Group'
                   resourceGroupName: 'RG-Datafactory'
@@ -150,7 +150,7 @@ stages:
                 displayName: 'Deploying ADF Artificats'
                 inputs:
                   deploymentScope: 'Resource Group'
-                  azureResourceManagerConnection: $(serviceConnection)
+                  #azureResourceManagerConnection: $(serviceConnection)
                   subscriptionId: $(subscriptionId)
                   action: 'Create Or Update Resource Group'
                   resourceGroupName: 'RG-Datafactory'
@@ -184,7 +184,7 @@ stages:
                 displayName: Creating ADF Infrastructure by IaC
                 inputs:
                   deploymentScope: "Resource Group"
-                  azureResourceManagerConnection: $(serviceConnection)
+                  #azureResourceManagerConnection: $(serviceConnection)
                   subscriptionId: $(subscriptionId)
                   action: "Create Or Update Resource Group"
                   resourceGroupName: "RG-Datafactory"
