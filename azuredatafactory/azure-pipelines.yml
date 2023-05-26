@@ -13,7 +13,7 @@ pool:
 
 variables:
   workingDir: $(Build.Repository.LocalPath)/azuredatafactory/src
-  serviceConnection: 'AzureServiceConnection' 
+  #serviceConnection: 'AzureServiceConnection' 
 
 stages:
   - stage: build
@@ -201,7 +201,7 @@ stages:
                 displayName: 'Deploying ADF Artificats'
                 inputs:
                   deploymentScope: 'Resource Group'
-                  azureResourceManagerConnection: $(serviceConnection)
+                  #azureResourceManagerConnection: $(serviceConnection)
                   subscriptionId: $(subscriptionId)
                   action: 'Create Or Update Resource Group'
                   resourceGroupName: 'RG-Datafactory'
